@@ -1,11 +1,4 @@
-import {
-  IsNotEmpty,
-  IsString,
-  IsInt,
-  Min,
-  ArrayNotEmpty,
-  ArrayUnique,
-} from 'class-validator';
+import { IsNotEmpty, IsString, IsInt, Min, ArrayNotEmpty, ArrayUnique } from 'class-validator';
 
 export class AddHolidaysDto {
   @IsString()

@@ -3,7 +3,7 @@ import { CountriesService } from './countries.service';
 
 @Controller('countries')
 export class CountriesController {
-  constructor(private readonly countriesService: CountriesService) { }
+  constructor(private readonly countriesService: CountriesService) {}
 
   @Get('available')
   getAvailableCountries() {

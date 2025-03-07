@@ -10,4 +10,4 @@ import { UserModule } from 'src/user/user.module';
   providers: [CalendarService],
   controllers: [CalendarController],
 })
-export class CalendarModule { }
+export class CalendarModule {}

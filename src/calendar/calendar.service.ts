@@ -12,7 +12,7 @@ export class CalendarService {
     private readonly userService: UserService,
     @InjectRepository(CalendarEvent)
     private readonly calendarRepository: Repository<CalendarEvent>,
-  ) { }
+  ) {}
 
   async addHolidaysToCalendar(userId: string, dto: AddHolidaysDto) {
     const { countryCode, year, holidays } = dto;
@@ -21,9 +21,7 @@ export class CalendarService {
     const response = await axios.get(url);
 
     if (!response.data || response.data.length === 0) {
-      throw new NotFoundException(
-        `No holidays found for ${countryCode} in ${year}`,
-      );
+      throw new NotFoundException(`No holidays found for ${countryCode} in ${year}`);
     }
 
     const selectedHolidays = response.data.filter((holiday) =>

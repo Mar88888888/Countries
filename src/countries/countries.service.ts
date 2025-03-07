@@ -5,9 +5,7 @@ import axios from 'axios';
 export class CountriesService {
   async getAvailableCountries() {
     try {
-      const response = await axios.get(
-        `${process.env.DATE_NAGER_API}/AvailableCountries`,
-      );
+      const response = await axios.get(`${process.env.DATE_NAGER_API}/AvailableCountries`);
       return response.data;
     } catch (error) {
       throw new HttpException(
@@ -25,20 +23,14 @@ export class CountriesService {
         axios.get(`${process.env.COUNTRIES_NOW_API}/flag/images`),
       ]);
 
-
-      const flagindex = flagData.data.data.findIndex(
-        (flag) => flag.iso2 === countryCode,
-      );
-      const flagUrl =
-        flagindex !== -1 ? flagData.data.data[flagindex].flag : '';
+      const flagindex = flagData.data.data.findIndex((flag) => flag.iso2 === countryCode);
+      const flagUrl = flagindex !== -1 ? flagData.data.data[flagindex].flag : '';
       const iso3 = flagData.data.data[flagindex].iso3;
       const populationIndex = populationData.data.data.findIndex(
         (population) => population.iso3 === iso3,
       );
       const population =
-        populationIndex !== -1
-          ? populationData.data.data[populationIndex].populationCounts
-          : [];
+        populationIndex !== -1 ? populationData.data.data[populationIndex].populationCounts : [];
 
       return {
         borders: borderCountries.data.borders || [],
@@ -46,10 +38,7 @@ export class CountriesService {
         flagUrl: flagUrl,
       };
     } catch (error) {
-      throw new HttpException(
-        'Error fetching country information',
-        HttpStatus.BAD_REQUEST,
-      );
+      throw new HttpException('Error fetching country information', HttpStatus.BAD_REQUEST);
     }
   }
 }

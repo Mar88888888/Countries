@@ -5,7 +5,7 @@ import { CreateUserDto } from './create-user.dto';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService) { }
+  constructor(private readonly userService: UserService) {}
 
   @Get(':id')
   async getUserById(@Param('id') id: string): Promise<User> {
